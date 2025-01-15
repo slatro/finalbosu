@@ -4,7 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Finalbosu Animasyon</title>
+    <!-- Eğer harici bağlantı kullanacaksan -->
     <script src="https://unpkg.com/@rive-app/web@latest"></script>
+    <!-- Eğer manuel indirdiysen -->
+    <!-- <script src="./rive.min.js"></script> -->
     <style>
         body {
             display: flex;
@@ -24,7 +27,7 @@
     <script>
         const canvas = document.getElementById('canvas');
         const rive = new Rive({
-            src: 'Finalbosu.riv', // Dosya adını kontrol et!
+            src: 'Finalbosu.riv', // Dosyanın adını ve yolunu kontrol et
             canvas: canvas,
             autoplay: true,
         });
