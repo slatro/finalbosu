@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Finalbosu Rive Animasyon</title>
+    <title>Finalbosu Animasyon</title>
     <script src="https://unpkg.com/@rive-app/web@latest"></script>
     <style>
         body {
@@ -12,7 +12,7 @@
             align-items: center;
             height: 100vh;
             margin: 0;
-            background-color: #f0f0f0;
+            background-color: #f4f4f4;
         }
         canvas {
             border: 1px solid #ccc;
@@ -20,15 +20,13 @@
     </style>
 </head>
 <body>
-    <canvas id="canvas" width="600" height="400"></canvas>
+    <canvas id="canvas" width="800" height="600"></canvas>
     <script>
-        // Rive animasyonunu yüklemek için kod
         const canvas = document.getElementById('canvas');
-
         const rive = new Rive({
-            src: 'Finalbosu.riv', // Animasyon dosyanın adı
+            src: 'Finalbosu.riv', // Dosya adını kontrol et!
             canvas: canvas,
-            autoplay: true, // Animasyon otomatik olarak başlasın
+            autoplay: true,
         });
     </script>
 </body>
