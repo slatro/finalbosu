@@ -11,7 +11,7 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background-color: #000; /* İsteğe bağlı arka plan rengi */
+            background-color: #000; /* Siyah arka plan */
         }
         canvas {
             display: block;
@@ -19,14 +19,14 @@
     </style>
 </head>
 <body>
-    <h1 style="display: none;">Finalbosu</h1> <!-- Sadece başlık metadata için, görünmez -->
     <canvas id="rive-canvas" width="1920" height="1080"></canvas>
 
     <!-- Rive Player Kütüphanesi -->
-    <script src="https://cdn.rive.app/releases/2.0.0/rive.min.js"></script>
+    <script src="https://unpkg.com/@rive-app/canvas"></script>
 
     <script>
-        const rive = new Rive({
+        // Rive animasyonunu başlat
+        const rive = new rive.Rive({
             src: './finalbosu.riv', // Rive dosyasının yolu
             canvas: document.getElementById('rive-canvas'),
             autoplay: true,
