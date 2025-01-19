@@ -78,10 +78,10 @@
 
             const resizeCanvas = () => {
                 const dpr = window.devicePixelRatio || 1; // Cihazın piksel oranı
-                canvas.width = Math.min(window.innerWidth * dpr * 0.9, 1200 * dpr); // %90 genişlik ve maksimum 1200px
-                canvas.height = Math.min(window.innerHeight * dpr * 0.9, 720 * dpr); // %90 yükseklik ve maksimum 720px
-                canvas.style.width = `${Math.min(window.innerWidth * 0.9, 1200)}px`;
-                canvas.style.height = `${Math.min(window.innerHeight * 0.9, 720)}px`;
+                canvas.width = Math.min(window.innerWidth * dpr * 0.9, 1100 * dpr); // %90 genişlik ve maksimum 1200px
+                canvas.height = Math.min(window.innerHeight * dpr * 0.9, 668.25 * dpr); // %90 yükseklik ve maksimum 720px
+                canvas.style.width = `${Math.min(window.innerWidth * 0.9, 1100)}px`;
+                canvas.style.height = `${Math.min(window.innerHeight * 0.9, 668.25)}px`;
             };
 
             resizeCanvas();
