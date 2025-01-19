@@ -25,12 +25,33 @@
     <script src="https://unpkg.com/@rive-app/canvas"></script>
 
     <script>
-        // Rive kütüphanesi tamamen yüklendikten sonra animasyonu başlat
         document.addEventListener("DOMContentLoaded", () => {
             const riveInstance = new rive.Rive({
                 src: './finalbosu.riv', // Rive dosyasının yolu
                 canvas: document.getElementById('rive-canvas'),
                 autoplay: true,
+                stateMachines: ['State Machine 1'], // State Machine adını buraya ekle
+                onStateChange: (event) => {
+                    console.log('State değişti:', event.data); // Konsola state değişikliklerini yaz
+                },
+            });
+
+            // Etkileşimler: Fare tıklaması
+            document.getElementById('rive-canvas').addEventListener('click', () => {
+                riveInstance.pointerDown(); // Fare tıklamasını tetikle
+            });
+
+            // Fare hareketleri için:
+            document.getElementById('rive-canvas').addEventListener('mousemove', (event) => {
+                riveInstance.pointerMove({
+                    x: event.offsetX,
+                    y: event.offsetY,
+                });
+            });
+
+            // Fare serbest bırakıldığında:
+            document.getElementById('rive-canvas').addEventListener('mouseup', () => {
+                riveInstance.pointerUp();
             });
         });
     </script>
