@@ -32,10 +32,9 @@
 
         #logo {
             position: absolute;
-            top: 10px;
             left: 50%;
-            transform: translateX(-50%);
-            width: 150px; /* Logo boyutu */
+            transform: translate(-50%, -50%); /* Hem yatay hem dikey ortalama */
+            width: 150px; /* Logo genişliği */
             z-index: 2;
         }
 
@@ -50,11 +49,11 @@
         canvas {
             width: 100%; /* Canvas genişliği ekranın %100'üne uyumlu */
             max-width: 1200px; /* Canvas genişliği maksimum 1200px olacak */
-            height: auto; /* Yüksekliği oranını korur */
+            height: auto; /* Yükseklik oranını korur */
             max-height: 90%; /* Ekranın %90'ından taşmaz */
             display: block;
             border-radius: 20px; /* Hafif yuvarlak köşeler */
-            box-shadow: 0 0 10px #ffffff, 0 0 20px #ffffff, 0 0 40px #ffffff; /* Beyaz neon ışık efekti */
+            box-shadow: 0 0 20px #ffffff, 0 0 40px #ffffff, 0 0 80px #ffffff; /* Beyaz neon ışık efekti */
             z-index: 1; /* Canvas logonun altında kalır */
         }
     </style>
@@ -75,6 +74,7 @@
     <script>
         document.addEventListener("DOMContentLoaded", () => {
             const canvas = document.getElementById('rive-canvas');
+            const logo = document.getElementById('logo');
 
             const resizeCanvas = () => {
                 const dpr = window.devicePixelRatio || 1; // Cihazın piksel oranı
@@ -82,6 +82,11 @@
                 canvas.height = Math.min(window.innerHeight * dpr * 0.9, 720 * dpr); // %90 yükseklik ve maksimum 720px
                 canvas.style.width = `${Math.min(window.innerWidth * 0.9, 1200)}px`;
                 canvas.style.height = `${Math.min(window.innerHeight * 0.9, 720)}px`;
+
+                // Logonun ortasını çerçevenin üst kenarına hizala
+                const canvasRect = canvas.getBoundingClientRect();
+                const logoHeight = logo.offsetHeight;
+                logo.style.top = `${canvasRect.top - logoHeight / 2}px`;
             };
 
             resizeCanvas();
