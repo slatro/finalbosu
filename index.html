@@ -7,19 +7,30 @@
     <style>
         body {
             margin: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
             height: 100vh;
-            background: url('https://finalbosu.com/background-image-url.jpg') no-repeat center center fixed;
-            background-size: cover; /* Arka planın ekranı doldurması için */
+            background: url('https://github.com/slatro/finalbosu/raw/main/background.jpeg') no-repeat center center fixed;
+            background-size: cover; /* Arka planı tam ekran yapar */
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start; /* Logo üstte, animasyon ortada */
+            align-items: center;
+        }
+        #logo {
+            width: 200px; /* Logo boyutu (isteğe göre değiştirilebilir) */
+            margin-top: 20px; /* Yukarıdan biraz boşluk */
+            z-index: 2; /* Logoyu diğer katmanların üstüne çıkarır */
         }
         canvas {
             display: block;
+            z-index: 1; /* Canvas logonun altında kalır */
         }
     </style>
 </head>
 <body>
+    <!-- Logo -->
+    <img id="logo" src="https://github.com/slatro/finalbosu/raw/main/logo.png" alt="Logo">
+
+    <!-- Rive Animasyonu -->
     <canvas id="rive-canvas" width="1920" height="1080"></canvas>
 
     <!-- Rive Player Kütüphanesi -->
@@ -31,7 +42,7 @@
                 src: './finalbosu.riv', // Rive dosyasının yolu
                 canvas: document.getElementById('rive-canvas'),
                 autoplay: true,
-                stateMachines: ['State Machine 1'], // State Machine adını buraya ekle
+                stateMachines: ['State Machine 1'], // State Machine adı
                 onStateChange: (event) => {
                     console.log('State değişti:', event.data); // Konsola state değişikliklerini yaz
                 },
@@ -39,7 +50,7 @@
 
             // Etkileşimler: Fare tıklaması
             document.getElementById('rive-canvas').addEventListener('click', () => {
-                riveInstance.pointerDown(); // Fare tıklamasını tetikle
+                riveInstance.pointerDown();
             });
 
             // Fare hareketleri için:
