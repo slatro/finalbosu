@@ -40,51 +40,20 @@
 
         #left-img {
             position: absolute;
-            left: 1%; /* Sol kenara biraz boşluk bırak */
-            top: 50%;
-            transform: translateY(-50%); /* Sol görseli dikeyde ortalar */
-            width: 110px; /* Sol görsel genişliği azaltıldı */
+            left: 0; /* Sol kenardan başlangıç noktası */
+            top: 50%; /* Dikeyde ortalama */
+            transform: translateY(-50%); /* Görseli dikeyde ortalar */
+            width: 110px; /* Sol görsel genişliği */
             z-index: 1; /* Canvas'ın arkasında kalır */
         }
 
         #right-img {
             position: absolute;
-            right: 1%; /* Sağ kenara biraz boşluk bırak */
-            top: 50%;
-            transform: translateY(-50%); /* Sağ görseli dikeyde ortalar */
-            width: 110px; /* Sağ görsel genişliği azaltıldı */
+            right: 0; /* Sağ kenardan başlangıç noktası */
+            top: 50%; /* Dikeyde ortalama */
+            transform: translateY(-50%); /* Görseli dikeyde ortalar */
+            width: 110px; /* Sağ görsel genişliği */
             z-index: 1; /* Canvas'ın arkasında kalır */
-        }
-
-        #left-light, #right-light {
-            position: absolute;
-            width: 20px; /* Işık boyutu */
-            height: 20px; /* Işık boyutu */
-            border-radius: 50%; /* Yuvarlak şekil */
-            background-color: white; /* Beyaz ışık */
-            opacity: 0; /* Başlangıçta görünmez */
-            animation: blink 1.5s infinite; /* Yanıp sönme animasyonu */
-        }
-
-        #left-light {
-            left: 1%; /* Sol görselin pozisyonuna göre ayarlandı */
-            top: calc(50% - 70px); /* Sol görselin üst kısmına konumlandır */
-            z-index: 2; /* Sol ışık görselin üstünde kalır */
-        }
-
-        #right-light {
-            right: 1%; /* Sağ görselin pozisyonuna göre ayarlandı */
-            top: calc(50% - 70px); /* Sağ görselin üst kısmına konumlandır */
-            z-index: 2; /* Sağ ışık görselin üstünde kalır */
-        }
-
-        @keyframes blink {
-            0%, 100% {
-                opacity: 0; /* Görünmez */
-            }
-            50% {
-                opacity: 1; /* Görünür */
-            }
         }
 
         #canvas-container {
@@ -112,12 +81,6 @@
 
     <!-- Sağ Görsel -->
     <img id="right-img" src="https://github.com/slatro/finalbosu/raw/main/right.png" alt="Right">
-
-    <!-- Sol Işık -->
-    <div id="left-light"></div>
-
-    <!-- Sağ Işık -->
-    <div id="right-light"></div>
 
     <!-- Logo -->
     <img id="logo" src="https://github.com/slatro/finalbosu/raw/main/logo.png" alt="Logo">
