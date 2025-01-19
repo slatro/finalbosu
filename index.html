@@ -30,60 +30,61 @@
             align-items: center;
         }
 
-        #left-img {
-            position: absolute;
-            left: -5%; /* Sol tarafa biraz kaydır */
-            top: 50%;
-            transform: translateY(-50%);
-            width: 120px; /* Görsel boyutu */
-            z-index: 1; /* Canvas'ın arkasında kalır */
-        }
-
-        #right-img {
-            position: absolute;
-            right: -5%; /* Sağ tarafa biraz kaydır */
-            top: 50%;
-            transform: translateY(-50%);
-            width: 120px; /* Görsel boyutu */
-            z-index: 1; /* Canvas'ın arkasında kalır */
-        }
-
-        #left-light, #right-light {
-            position: absolute;
-            width: 40px; /* Işığın genişliği */
-            height: 40px; /* Işığın yüksekliği */
-            border-radius: 50%; /* Yuvarlak şekil */
-            background-color: #ffffff; /* Beyaz renk */
-            opacity: 0; /* İlk başta görünmez */
-            z-index: 2; /* Görsellerin üstünde kalır */
-            animation: blink 1.5s infinite; /* Yanıp sönme animasyonu */
-        }
-
-        #left-light {
-            left: -5%; /* Sol görselin pozisyonuna göre ayarlandı */
-            top: calc(50% - 70px); /* Sol görselin üst kısmına konumlandır */
-        }
-
-        #right-light {
-            right: -5%; /* Sağ görselin pozisyonuna göre ayarlandı */
-            top: calc(50% - 70px); /* Sağ görselin üst kısmına konumlandır */
-        }
-
-        @keyframes blink {
-            0%, 100% {
-                opacity: 0; /* Işık görünmez */
-            }
-            50% {
-                opacity: 1; /* Işık görünür */
-            }
-        }
-
         #logo {
             position: absolute;
             left: 50%;
             transform: translateX(-50%); /* Yatayda ortalama */
             width: 200px; /* Logo genişliği */
             z-index: 3; /* Canvas üstünde kalır */
+        }
+
+        #left-img {
+            position: absolute;
+            left: 1%; /* Sol kenara biraz boşluk bırak */
+            top: 50%;
+            transform: translateY(-50%); /* Sol görseli dikeyde ortalar */
+            width: 110px; /* Sol görsel genişliği azaltıldı */
+            z-index: 1; /* Canvas'ın arkasında kalır */
+        }
+
+        #right-img {
+            position: absolute;
+            right: 1%; /* Sağ kenara biraz boşluk bırak */
+            top: 50%;
+            transform: translateY(-50%); /* Sağ görseli dikeyde ortalar */
+            width: 110px; /* Sağ görsel genişliği azaltıldı */
+            z-index: 1; /* Canvas'ın arkasında kalır */
+        }
+
+        #left-light, #right-light {
+            position: absolute;
+            width: 20px; /* Işık boyutu */
+            height: 20px; /* Işık boyutu */
+            border-radius: 50%; /* Yuvarlak şekil */
+            background-color: white; /* Beyaz ışık */
+            opacity: 0; /* Başlangıçta görünmez */
+            animation: blink 1.5s infinite; /* Yanıp sönme animasyonu */
+        }
+
+        #left-light {
+            left: 1%; /* Sol görselin pozisyonuna göre ayarlandı */
+            top: calc(50% - 70px); /* Sol görselin üst kısmına konumlandır */
+            z-index: 2; /* Sol ışık görselin üstünde kalır */
+        }
+
+        #right-light {
+            right: 1%; /* Sağ görselin pozisyonuna göre ayarlandı */
+            top: calc(50% - 70px); /* Sağ görselin üst kısmına konumlandır */
+            z-index: 2; /* Sağ ışık görselin üstünde kalır */
+        }
+
+        @keyframes blink {
+            0%, 100% {
+                opacity: 0; /* Görünmez */
+            }
+            50% {
+                opacity: 1; /* Görünür */
+            }
         }
 
         #canvas-container {
