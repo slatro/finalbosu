@@ -4,9 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Finalbosu</title>
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #000; /* İsteğe bağlı arka plan rengi */
+        }
+        canvas {
+            display: block;
+        }
+    </style>
 </head>
 <body>
-    <h1>Finalbosu</h1>
+    <h1 style="display: none;">Finalbosu</h1> <!-- Sadece başlık metadata için, görünmez -->
     <canvas id="rive-canvas" width="1920" height="1080"></canvas>
 
     <!-- Rive Player Kütüphanesi -->
@@ -14,7 +27,7 @@
 
     <script>
         const rive = new Rive({
-            src: 'animation.riv', // Depoya yüklediğin .riv dosyasının adı
+            src: './finalbosu.riv', // Rive dosyasının yolu
             canvas: document.getElementById('rive-canvas'),
             autoplay: true,
         });
