@@ -5,22 +5,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Finalbosu</title>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
         body {
             margin: 0;
             height: 100vh;
-            background: url('https://github.com/slatro/finalbosu/raw/main/background.jpeg') no-repeat center center fixed;
-            background-size: cover; /* Arka planı tam ekran yapar */
+            width: 100vw;
+            overflow: hidden; /* Kaydırma çubuklarını kaldır */
             display: flex;
             flex-direction: column;
-            justify-content: flex-start; /* Logo üstte, animasyon ortada */
-            align-items: center;
+            justify-content: center; /* İçeriği dikeyde ortala */
+            align-items: center; /* İçeriği yatayda ortala */
+            background: url('https://github.com/slatro/finalbosu/raw/main/background.jpeg') no-repeat center center fixed;
+            background-size: cover; /* Arka planı ekran boyutuna sığdır */
         }
         #logo {
-            width: 200px; /* Logo boyutu (isteğe göre değiştirilebilir) */
-            margin-top: 20px; /* Yukarıdan biraz boşluk */
-            z-index: 2; /* Logoyu diğer katmanların üstüne çıkarır */
+            width: 15%; /* Logo boyutu ekranın %15'i kadar */
+            max-width: 300px; /* Maksimum boyut */
+            position: absolute;
+            top: 20px; /* Yukarıdan boşluk */
+            left: 50%;
+            transform: translateX(-50%); /* Yatayda merkezle */
+            z-index: 2; /* Logoyu öne çıkar */
         }
         canvas {
+            width: 100%; /* Canvas genişliği ekran boyutuna sığsın */
+            height: 100%; /* Canvas yüksekliği ekran boyutuna sığsın */
             display: block;
             z-index: 1; /* Canvas logonun altında kalır */
         }
@@ -31,7 +44,7 @@
     <img id="logo" src="https://github.com/slatro/finalbosu/raw/main/logo.png" alt="Logo">
 
     <!-- Rive Animasyonu -->
-    <canvas id="rive-canvas" width="1920" height="1080"></canvas>
+    <canvas id="rive-canvas"></canvas>
 
     <!-- Rive Player Kütüphanesi -->
     <script src="https://unpkg.com/@rive-app/canvas"></script>
