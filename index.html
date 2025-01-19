@@ -10,30 +10,46 @@
             padding: 0;
             box-sizing: border-box;
         }
+
         body {
-            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             height: 100vh;
-            width: 100vw;
-            overflow: hidden; /* Kaydırma çubuklarını kaldır */
+            overflow: hidden; /* Taşmayı engeller */
+            background: url('https://github.com/slatro/finalbosu/raw/main/background.jpeg') no-repeat center center fixed;
+            background-size: cover; /* Arka planı ekranı dolduracak şekilde ayarlar */
+        }
+
+        #game-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
             display: flex;
             flex-direction: column;
-            justify-content: center; /* İçeriği dikeyde ortala */
-            align-items: center; /* İçeriği yatayda ortala */
-            background: url('https://github.com/slatro/finalbosu/raw/main/background.jpeg') no-repeat center center fixed;
-            background-size: cover; /* Arka planı ekran boyutuna sığdır */
+            justify-content: space-between; /* Üst ve alt kısmı ayırır */
         }
+
         #logo {
-            width: 15%; /* Logo boyutu ekranın %15'i kadar */
-            max-width: 300px; /* Maksimum boyut */
             position: absolute;
-            top: 20px; /* Yukarıdan boşluk */
+            top: 10px;
             left: 50%;
-            transform: translateX(-50%); /* Yatayda merkezle */
-            z-index: 2; /* Logoyu öne çıkar */
+            transform: translateX(-50%);
+            width: 150px; /* Logo boyutu */
+            z-index: 2;
         }
+
+        #canvas-container {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
         canvas {
-            display: block;
-            z-index: 1; /* Canvas logonun altında kalır */
+            width: 90%; /* Canvas genişliği ekranın %90'ını kaplar */
+            height: auto; /* Yükseklik oranını korur */
+            max-height: 80%; /* Ekranın %80'inden taşmaz */
         }
     </style>
 </head>
@@ -41,28 +57,27 @@
     <!-- Logo -->
     <img id="logo" src="https://github.com/slatro/finalbosu/raw/main/logo.png" alt="Logo">
 
-    <!-- Rive Animasyonu -->
-    <canvas id="rive-canvas"></canvas>
+    <!-- Rive Canvas -->
+    <div id="game-container">
+        <div id="canvas-container">
+            <canvas id="rive-canvas"></canvas>
+        </div>
+    </div>
 
     <!-- Rive Player Kütüphanesi -->
     <script src="https://unpkg.com/@rive-app/canvas"></script>
-
     <script>
         document.addEventListener("DOMContentLoaded", () => {
             const canvas = document.getElementById('rive-canvas');
-            const ctx = canvas.getContext('2d');
-            
-            // Ekran boyutuna göre canvas çözünürlüğünü ayarla
+
             const resizeCanvas = () => {
                 const dpr = window.devicePixelRatio || 1; // Cihazın piksel oranı
-                canvas.width = window.innerWidth * dpr;
-                canvas.height = window.innerHeight * dpr;
-                canvas.style.width = `${window.innerWidth}px`;
-                canvas.style.height = `${window.innerHeight}px`;
-                ctx.scale(dpr, dpr); // Çözünürlüğü artır
+                canvas.width = window.innerWidth * dpr * 0.9; // %90 genişlik
+                canvas.height = (window.innerHeight * dpr * 0.8); // %80 yükseklik
+                canvas.style.width = `${window.innerWidth * 0.9}px`;
+                canvas.style.height = `${window.innerHeight * 0.8}px`;
             };
 
-            // İlk yükleme ve pencere boyutu değişikliğinde çalıştır
             resizeCanvas();
             window.addEventListener('resize', resizeCanvas);
 
@@ -70,28 +85,10 @@
                 src: './finalbosu.riv', // Rive dosyasının yolu
                 canvas: canvas,
                 autoplay: true,
-                stateMachines: ['State Machine 1'], // State Machine adı
+                stateMachines: ['State Machine 1'],
                 onStateChange: (event) => {
                     console.log('State değişti:', event.data); // Konsola state değişikliklerini yaz
                 },
-            });
-
-            // Etkileşimler: Fare tıklaması
-            canvas.addEventListener('click', () => {
-                riveInstance.pointerDown();
-            });
-
-            // Fare hareketleri için:
-            canvas.addEventListener('mousemove', (event) => {
-                riveInstance.pointerMove({
-                    x: event.offsetX,
-                    y: event.offsetY,
-                });
-            });
-
-            // Fare serbest bırakıldığında:
-            canvas.addEventListener('mouseup', () => {
-                riveInstance.pointerUp();
             });
         });
     </script>
