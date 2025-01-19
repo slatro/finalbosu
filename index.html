@@ -32,8 +32,6 @@
             z-index: 2; /* Logoyu öne çıkar */
         }
         canvas {
-            width: 100%; /* Canvas genişliği ekran boyutuna sığsın */
-            height: 100%; /* Canvas yüksekliği ekran boyutuna sığsın */
             display: block;
             z-index: 1; /* Canvas logonun altında kalır */
         }
@@ -51,9 +49,26 @@
 
     <script>
         document.addEventListener("DOMContentLoaded", () => {
+            const canvas = document.getElementById('rive-canvas');
+            const ctx = canvas.getContext('2d');
+            
+            // Ekran boyutuna göre canvas çözünürlüğünü ayarla
+            const resizeCanvas = () => {
+                const dpr = window.devicePixelRatio || 1; // Cihazın piksel oranı
+                canvas.width = window.innerWidth * dpr;
+                canvas.height = window.innerHeight * dpr;
+                canvas.style.width = `${window.innerWidth}px`;
+                canvas.style.height = `${window.innerHeight}px`;
+                ctx.scale(dpr, dpr); // Çözünürlüğü artır
+            };
+
+            // İlk yükleme ve pencere boyutu değişikliğinde çalıştır
+            resizeCanvas();
+            window.addEventListener('resize', resizeCanvas);
+
             const riveInstance = new rive.Rive({
                 src: './finalbosu.riv', // Rive dosyasının yolu
-                canvas: document.getElementById('rive-canvas'),
+                canvas: canvas,
                 autoplay: true,
                 stateMachines: ['State Machine 1'], // State Machine adı
                 onStateChange: (event) => {
@@ -62,12 +77,12 @@
             });
 
             // Etkileşimler: Fare tıklaması
-            document.getElementById('rive-canvas').addEventListener('click', () => {
+            canvas.addEventListener('click', () => {
                 riveInstance.pointerDown();
             });
 
             // Fare hareketleri için:
-            document.getElementById('rive-canvas').addEventListener('mousemove', (event) => {
+            canvas.addEventListener('mousemove', (event) => {
                 riveInstance.pointerMove({
                     x: event.offsetX,
                     y: event.offsetY,
@@ -75,7 +90,7 @@
             });
 
             // Fare serbest bırakıldığında:
-            document.getElementById('rive-canvas').addEventListener('mouseup', () => {
+            canvas.addEventListener('mouseup', () => {
                 riveInstance.pointerUp();
             });
         });
