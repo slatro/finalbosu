@@ -26,8 +26,8 @@
             width: 100%;
             height: 100%;
             display: flex;
-            flex-direction: column;
-            justify-content: space-between; /* Üst ve alt kısmı ayırır */
+            justify-content: center; /* Canvası yatayda ortalar */
+            align-items: center; /* Canvası dikeyde ortalar */
         }
 
         #logo {
@@ -38,27 +38,50 @@
             z-index: 2;
         }
 
+        #left-img {
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%); /* Sol görseli dikeyde ortalar */
+            width: 150px; /* Sol görsel genişliği */
+            z-index: 2;
+        }
+
+        #right-img {
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%); /* Sağ görseli dikeyde ortalar */
+            width: 150px; /* Sağ görsel genişliği */
+            z-index: 2;
+        }
+
         #canvas-container {
-            flex: 1;
+            position: relative;
             display: flex;
             justify-content: center;
             align-items: center;
-            position: relative;
-        }
-
-        canvas {
-            width: 100%; /* Canvas genişliği ekranın %100'üne uyumlu */
-            max-width: 1200px; /* Canvas genişliği maksimum 1200px olacak */
-            height: auto; /* Yükseklik oranını korur */
-            max-height: 90%; /* Ekranın %90'ından taşmaz */
-            display: block;
+            max-width: 1200px;
+            max-height: 90%;
             border-radius: 20px; /* Hafif yuvarlak köşeler */
             box-shadow: 0 0 5px #ffffff, 0 0 10px #ffffff, 0 0 20px #ffffff; /* Beyaz neon ışık efekti */
             z-index: 1; /* Canvas logonun altında kalır */
         }
+
+        canvas {
+            width: 100%; /* Canvas genişliği ekranın %100'üne uyumlu */
+            height: auto; /* Yükseklik oranını korur */
+            display: block;
+        }
     </style>
 </head>
 <body>
+    <!-- Sol Görsel -->
+    <img id="left-img" src="https://github.com/slatro/finalbosu/raw/main/left.png" alt="Left">
+
+    <!-- Sağ Görsel -->
+    <img id="right-img" src="https://github.com/slatro/finalbosu/raw/main/right.png" alt="Right">
+
     <!-- Logo -->
     <img id="logo" src="https://github.com/slatro/finalbosu/raw/main/logo.png" alt="Logo">
 
