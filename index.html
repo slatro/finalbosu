@@ -44,12 +44,17 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            position: relative;
         }
 
         canvas {
             width: 90%; /* Canvas genişliği ekranın %90'ını kaplar */
             height: auto; /* Yükseklik oranını korur */
             max-height: 80%; /* Ekranın %80'inden taşmaz */
+            display: block;
+            border-radius: 20px; /* Hafif yuvarlak köşeler */
+            box-shadow: 0 0 20px #ff00ff, 0 0 40px #ff00ff, 0 0 80px #ff00ff; /* Neon ışık efekti */
+            z-index: 1; /* Canvas logonun altında kalır */
         }
     </style>
 </head>
@@ -57,7 +62,7 @@
     <!-- Logo -->
     <img id="logo" src="https://github.com/slatro/finalbosu/raw/main/logo.png" alt="Logo">
 
-    <!-- Rive Canvas -->
+    <!-- Rive Animasyonu -->
     <div id="game-container">
         <div id="canvas-container">
             <canvas id="rive-canvas"></canvas>
