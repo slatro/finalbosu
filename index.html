@@ -39,22 +39,24 @@
         }
 
         #left-img {
-            position: absolute;
-            left: 2%; /* Sol kenara biraz boşluk bırak */
-            top: 50%;
-            transform: translateY(-50%); /* Sol görseli dikeyde ortalar */
-            width: 120px; /* Sol görsel genişliği azaltıldı */
-            z-index: 1; /* Canvas'ın arkasında kalır */
-        }
+    position: absolute;
+    left: -5%; /* Sol görseli biraz daha sola kaydır */
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100px; /* Genişliği biraz daha küçült */
+    z-index: 1; /* Canvas'ın arkasında kalır */
+}
+
 
         #right-img {
-            position: absolute;
-            right: 2%; /* Sağ kenara biraz boşluk bırak */
-            top: 50%;
-            transform: translateY(-50%); /* Sağ görseli dikeyde ortalar */
-            width: 120px; /* Sağ görsel genişliği azaltıldı */
-            z-index: 1; /* Canvas'ın arkasında kalır */
-        }
+    position: absolute;
+    right: -5%; /* Sağ görseli biraz daha sağa kaydır */
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100px; /* Genişliği biraz daha küçült */
+    z-index: 1; /* Canvas'ın arkasında kalır */
+}
+
 
         #canvas-container {
             position: relative;
