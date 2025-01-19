@@ -26,8 +26,8 @@
             width: 100%;
             height: 100%;
             display: flex;
-            justify-content: center; /* Canvası yatayda ortalar */
-            align-items: center; /* Canvası dikeyde ortalar */
+            justify-content: center;
+            align-items: center;
         }
 
         #logo {
@@ -35,25 +35,25 @@
             left: 50%;
             transform: translateX(-50%); /* Yatayda ortalama */
             width: 200px; /* Logo genişliği */
-            z-index: 2;
+            z-index: 3; /* Canvas üstünde kalır */
         }
 
         #left-img {
             position: absolute;
-            left: 0;
+            left: 2%; /* Sol kenara biraz boşluk bırak */
             top: 50%;
             transform: translateY(-50%); /* Sol görseli dikeyde ortalar */
-            width: 150px; /* Sol görsel genişliği */
-            z-index: 2;
+            width: 120px; /* Sol görsel genişliği azaltıldı */
+            z-index: 1; /* Canvas'ın arkasında kalır */
         }
 
         #right-img {
             position: absolute;
-            right: 0;
+            right: 2%; /* Sağ kenara biraz boşluk bırak */
             top: 50%;
             transform: translateY(-50%); /* Sağ görseli dikeyde ortalar */
-            width: 150px; /* Sağ görsel genişliği */
-            z-index: 2;
+            width: 120px; /* Sağ görsel genişliği azaltıldı */
+            z-index: 1; /* Canvas'ın arkasında kalır */
         }
 
         #canvas-container {
@@ -65,7 +65,7 @@
             max-height: 90%;
             border-radius: 20px; /* Hafif yuvarlak köşeler */
             box-shadow: 0 0 5px #ffffff, 0 0 10px #ffffff, 0 0 20px #ffffff; /* Beyaz neon ışık efekti */
-            z-index: 1; /* Canvas logonun altında kalır */
+            z-index: 2; /* Canvas, görsellerin üzerinde olacak */
         }
 
         canvas {
