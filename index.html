@@ -25,11 +25,13 @@
     <script src="https://unpkg.com/@rive-app/canvas"></script>
 
     <script>
-        // Rive animasyonunu başlat
-        const rive = new rive.Rive({
-            src: './finalbosu.riv', // Rive dosyasının yolu
-            canvas: document.getElementById('rive-canvas'),
-            autoplay: true,
+        // Rive kütüphanesi tamamen yüklendikten sonra animasyonu başlat
+        document.addEventListener("DOMContentLoaded", () => {
+            const riveInstance = new rive.Rive({
+                src: './finalbosu.riv', // Rive dosyasının yolu
+                canvas: document.getElementById('rive-canvas'),
+                autoplay: true,
+            });
         });
     </script>
 </body>
