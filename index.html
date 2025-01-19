@@ -34,7 +34,7 @@
             position: absolute;
             left: 50%;
             transform: translateX(-50%); /* Yatayda ortalama */
-            width: 200px; /* Logo genişliği (isteğe göre ayarlayabilirsiniz) */
+            width: 200px; /* Logo genişliği */
             z-index: 2;
         }
 
@@ -87,12 +87,13 @@
                 const canvasRect = canvas.getBoundingClientRect();
                 const logoHeight = logo.offsetHeight;
 
-                // Logonun alt kısmını canvas üst kenarına ortala
-                logo.style.top = `${canvasRect.top - logoHeight}px`;
+                logo.style.top = `${canvasRect.top - logoHeight / 2}px`;
             };
 
+            // İlk kez çalıştır ve pencere boyutu değiştiğinde yeniden çalıştır
             resizeCanvas();
             window.addEventListener('resize', resizeCanvas);
+            window.addEventListener('load', resizeCanvas); // Sayfa tamamen yüklendiğinde de çalıştır
 
             const riveInstance = new rive.Rive({
                 src: './finalbosu.riv', // Rive dosyasının yolu
