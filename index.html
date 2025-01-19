@@ -3,32 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Finalbosu Animasyon</title>
-    <!-- Eğer harici bağlantı kullanacaksan -->
-    <script src="https://unpkg.com/@rive-app/canvas@2.9.1"></script>
-    <!-- Eğer manuel indirdiysen -->
-    <!-- <script src="./rive.min.js"></script> -->
-    <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #f4f4f4;
-        }
-        canvas {
-            border: 1px solid #ccc;
-        }
-    </style>
+    <title>Rive Animation - Final Bosu</title>
 </head>
 <body>
-    <canvas id="canvas" width="800" height="600"></canvas>
+    <h1>Rive Animasyon - Final Bosu</h1>
+    <canvas id="rive-canvas" width="500" height="500"></canvas>
+
+    <!-- Rive Player Kütüphanesi -->
+    <script src="https://cdn.rive.app/releases/2.0.0/rive.min.js"></script>
+
     <script>
-        const canvas = document.getElementById('canvas');
         const rive = new Rive({
-            src: 'Finalbosu.riv', // Dosyanın adını ve yolunu kontrol et
-            canvas: canvas,
+            src: 'animation.riv', // Depoya yüklediğin .riv dosyasının adı
+            canvas: document.getElementById('rive-canvas'),
             autoplay: true,
         });
     </script>
