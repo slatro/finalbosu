@@ -30,58 +30,30 @@
             align-items: center;
         }
 
-        #left-img-container, #right-img-container {
+        #logo {
             position: absolute;
+            left: 50%;
+            transform: translateX(-50%); /* Yatayda ortalama */
+            width: 200px; /* Logo genişliği */
+            z-index: 3; /* Canvas üstünde kalır */
+        }
+
+        #left-img {
+            position: absolute;
+            left: 1%; /* Sol kenara biraz boşluk bırak */
             top: 50%;
-            transform: translateY(-50%);
-            width: 120px;
-            height: 300px; /* Görsel boyutlarına uygun yükseklik */
-            display: flex;
-            flex-direction: column; /* Daireleri üst üste yerleştirmek için */
-            justify-content: space-between; /* Daireler arasında boşluk */
+            transform: translateY(-50%); /* Sol görseli dikeyde ortalar */
+            width: 110px; /* Sol görsel genişliği azaltıldı */
             z-index: 1; /* Canvas'ın arkasında kalır */
         }
 
-        #left-img-container {
-            left: -5%; /* Sol tarafa konumlandır */
-        }
-
-        #right-img-container {
-            right: -5%; /* Sağ tarafa konumlandır */
-        }
-
-        .circle {
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            background-color: #ffffff; /* Dairelerin varsayılan rengi */
-            opacity: 0.2; /* Varsayılan şeffaflık */
-            animation: light-up 2s infinite; /* Animasyonu uygula */
-        }
-
-        .circle:nth-child(1) {
-            animation-delay: 0s; /* İlk daire animasyonu hemen başlar */
-        }
-
-        .circle:nth-child(2) {
-            animation-delay: 0.5s; /* İkinci daire biraz gecikmeli başlar */
-        }
-
-        .circle:nth-child(3) {
-            animation-delay: 1s; /* Üçüncü daire biraz daha gecikmeli başlar */
-        }
-
-        .circle:nth-child(4) {
-            animation-delay: 1.5s; /* Dördüncü daire */
-        }
-
-        @keyframes light-up {
-            0%, 100% {
-                opacity: 0.2; /* Başlangıç ve bitişte soluk */
-            }
-            50% {
-                opacity: 1; /* Ortada parlak */
-            }
+        #right-img {
+            position: absolute;
+            right: 1%; /* Sağ kenara biraz boşluk bırak */
+            top: 50%;
+            transform: translateY(-50%); /* Sağ görseli dikeyde ortalar */
+            width: 110px; /* Sağ görsel genişliği azaltıldı */
+            z-index: 1; /* Canvas'ın arkasında kalır */
         }
 
         #canvas-container {
@@ -105,20 +77,10 @@
 </head>
 <body>
     <!-- Sol Görsel -->
-    <div id="left-img-container">
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-    </div>
+    <img id="left-img" src="https://github.com/slatro/finalbosu/raw/main/left.png" alt="Left">
 
     <!-- Sağ Görsel -->
-    <div id="right-img-container">
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-        <div class="circle"></div>
-    </div>
+    <img id="right-img" src="https://github.com/slatro/finalbosu/raw/main/right.png" alt="Right">
 
     <!-- Logo -->
     <img id="logo" src="https://github.com/slatro/finalbosu/raw/main/logo.png" alt="Logo">
